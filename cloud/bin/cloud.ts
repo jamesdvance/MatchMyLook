@@ -2,8 +2,13 @@
 import 'source-map-support/register';
 import * as cdk from 'aws-cdk-lib';
 import { CloudStack } from '../lib/cloud-stack';
+import { ScrapingStack } from '../lib/scraping-stack';
 
 const app = new cdk.App();
+new ScrapingStack(app, "MatchMyLook-Scraping-App",{
+  env: { account: '065754658554', region: 'us-west-2'},
+
+})
 new CloudStack(app, 'CloudStack', {
   /* If you don't specify 'env', this stack will be environment-agnostic.
    * Account/Region-dependent features and context lookups will not work,
